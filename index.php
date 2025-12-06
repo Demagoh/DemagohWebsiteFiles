@@ -6,7 +6,7 @@ echo '<!DOCTYPE html><html>';
 $headElementData = [
     "title" => "Demagoh",
     "icon" => "/media/DemagohPFP.png",
-    "stylesheet" => "/media/mainPageStyle.css",
+    "stylesheet" => "/styles/mainPageStyle.css",
     "keywords" => "Demagoh",
     "description" => "Damn, I have a website."
 ];

@@ -4,11 +4,11 @@ require_once("../functions.php");
 echo '<!DOCTYPE html><html>';
 
 $headElementData = [
-    "title" => "Page template",
+    "title" => "Templates list",
     "icon" => "../media/pageTemplateIcon.png",
-    "stylesheet" => "../media/pageTemplateStyle.css",
+    "stylesheet" => "../styles/templatesPageStyle.css",
     "keywords" => "template",
-    "description" => "This page was created from a template. Please change the values in the headElementData array to the appropriate ones."
+    "description" => "A page with links to the raw files of my page templates on my Github repo."
 ];
 
 htmlPageHead($headElementData);
@@ -32,11 +32,13 @@ redirectToRemovePortNumberFromURL("/templates/");
 
 
 <body>
-    <table>
-        <tr>
-            <td></td>
-        </tr>
-    </table>
+    <div>
+        My page templates <span>(links to the raw files on my Github repo)</span>:
+        <ul>
+            <li><a href="https://raw.githubusercontent.com/Demagoh/DemagohWebsiteFiles/refs/heads/master/templates/pageTemplate.php">Page template</a></li>
+            <li><a href="https://raw.githubusercontent.com/Demagoh/DemagohWebsiteFiles/refs/heads/master/templates/redirectPageTemplate.php">Redirect page template</a></li>
+        </ul>
+    </div>
 </body>
 
 

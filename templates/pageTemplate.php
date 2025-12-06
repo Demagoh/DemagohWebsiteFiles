@@ -6,7 +6,7 @@ echo '<!DOCTYPE html><html>';
 $headElementData = [
     "title" => "Page template",
     "icon" => "../media/pageTemplateIcon.png",
-    "stylesheet" => "../media/pageTemplateStyle.css",
+    "stylesheet" => "../styles/pageTemplateStyle.css",
     "keywords" => "template",
     "description" => "This page was created from a template. Please change the values in the headElementData array to the appropriate ones."
 ];

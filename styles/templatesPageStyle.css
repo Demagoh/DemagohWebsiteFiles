@@ -1,0 +1,27 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #222222;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: lightgray;
+}
+
+div {
+    padding: 10pt;
+}
+
+span {
+    color: gray;
+}

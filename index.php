@@ -41,10 +41,11 @@ redirectToRemovePortNumberFromURL("/");
                 <li><a href="templates/">Templates</a></li>
             </ul>
             <br />
-            My links:
+            Links:
             <ul>
-                <li><a href="https://github.com/demagoh" target="_blank">Github</a></li>
                 <li><a href="https://mas.to/@DemagohOfficial" target="_blank">Mastodon</a></li>
+                <li><a href="https://github.com/demagoh" target="_blank">Github</a></li>
+                <li><a href="https://github.com/Demagoh/DemagohWebsiteFiles" target="_blank">Website's Github repo</a></li>
             </ul>
             <br />
             This website uses/runs on:

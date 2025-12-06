@@ -14,3 +14,19 @@ body {
     margin: 0;
     color: white;
 }
+
+ul {
+    list-style: square;
+}
+
+a:link {
+    color: #12B812;
+}
+
+a:hover {
+    color: #09A009;
+}
+
+#page {
+    padding: clamp(1rem, 10pt, 2rem);
+}

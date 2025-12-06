@@ -1,17 +1,13 @@
 @import url("mainStyle.css");
 
-ul {
-    list-style: none;
+.link:link {
+    color: #DADADA;
 }
 
-a {
-    color: lightgray;
-}
-
-div {
-    padding: 10pt;
+.link:hover {
+    color: #AAA;
 }
 
 span {
-    color: gray;
+    color: #888;
 }

@@ -1,7 +1,8 @@
 <?php
 
 require_once("../functions.php");
-echo '<!DOCTYPE html><html>';
+echo '<!DOCTYPE html>
+<html>';
 
 $headElementData = [
     "title" => "My friends",
@@ -31,11 +32,11 @@ redirectToRemovePortNumberFromURL("/friends/");
 
 
 
-<body>
-    <div id="page">
-        <a href="/">Home</a>
-    </div>
-</body>
+    <body>
+        <div id="page">
+            <a href="/">Home</a>
+        </div>
+    </body>
 
 
 

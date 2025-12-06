@@ -11,7 +11,8 @@ function redirectToRemovePortNumberFromURL($page) {
 }
 
 function htmlPageHead($headElementData) {
-    echo '<head>
+    echo '
+    <head>
         <title>' .$headElementData["title"] .'</title>
         <link rel="icon" type="image/x-icon" href="' .$headElementData["icon"] .'">
         <link rel="stylesheet" href="' .$headElementData["stylesheet"] .'">

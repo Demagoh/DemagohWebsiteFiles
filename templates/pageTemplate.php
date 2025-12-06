@@ -1,7 +1,8 @@
 <?php
 
 require_once("../functions.php");
-echo '<!DOCTYPE html><html>';
+echo '<!DOCTYPE html>
+<html>';
 
 $headElementData = [
     "title" => "Page template",
@@ -31,9 +32,9 @@ redirectToRemovePortNumberFromURL("/templates/pageTemplate");
 
 
 
-<body>
-    empty for now lol
-</body>
+    <body>
+        empty for now lol
+    </body>
 
 
 

@@ -44,6 +44,8 @@ redirectToRemovePortNumberFromURL("/templates/");
             <li><a class="link" href="pageTemplate">Page template</a></li>
             <li><a class="link" href="redirectPageTemplate">Redirect page template</a></li>
         </ul>
+        <br />
+        <a href="/">Home</a>
     </div>
 </body>
 

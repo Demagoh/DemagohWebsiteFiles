@@ -32,7 +32,9 @@ redirectToRemovePortNumberFromURL("/friends/");
 
 
 <body>
-    empty for now lol.
+    <div id="page">
+        <a href="/">Home</a>
+    </div>
 </body>
 
 

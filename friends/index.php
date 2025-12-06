@@ -32,7 +32,7 @@ redirectToRemovePortNumberFromURL("/friends/");
 
 
 <body>
-    empty for now lol
+    empty for now lol.
 </body>
 
 

@@ -32,7 +32,7 @@ redirectToRemovePortNumberFromURL("/");
 
 
 
-    <body>
+    <body style="visibility: hidden">
         <div id="page">
             Pages:
             <ul>
@@ -74,6 +74,8 @@ redirectToRemovePortNumberFromURL("/");
 
 <?php
 
-echo '</html>';
+echo '
+    <script src="/javascript/showBody.js"></script>
+</html>';
 
 ?>

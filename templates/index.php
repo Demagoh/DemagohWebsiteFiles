@@ -6,8 +6,8 @@ echo '<!DOCTYPE html>
 
 $headElementData = [
     "title" => "Templates list",
-    "icon" => "../media/pageTemplateIcon.png",
-    "stylesheet" => "../styles/templatesPageStyle.css",
+    "icon" => "/media/pageTemplateIcon.png",
+    "stylesheet" => "/styles/templatesPageStyle.css",
     "keywords" => "templates",
     "description" => "A page with links to the raw files of my page templates on my Github repo."
 ];
@@ -32,7 +32,7 @@ redirectToRemovePortNumberFromURL("/templates/");
 
 
 
-    <body>
+    <body style="visibility: hidden">
         <div id="page">
             My page templates <span>(links to the raw files on my Github repo)</span>:
             <ul>
@@ -66,6 +66,8 @@ redirectToRemovePortNumberFromURL("/templates/");
 
 <?php
 
-echo '</html>';
+echo '
+    <script src="/javascript/showBody.js"></script>
+</html>';
 
 ?>

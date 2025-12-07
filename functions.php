@@ -15,7 +15,7 @@ function htmlPageHead($headElementData) {
     <head>
         <title>' .$headElementData["title"] .'</title>
         <link rel="icon" type="image/x-icon" href="' .$headElementData["icon"] .'">
-        <link rel="stylesheet" href="' .$headElementData["stylesheet"] .'">
+        <link rel="stylesheet" href="' .$headElementData["stylesheet"] ."?" .time() .'">
         <meta charset="UTF-8">
         <meta name="keywords" content="' .$headElementData["keywords"] .'">
         <meta name="description" content="' .$headElementData["description"] .'">

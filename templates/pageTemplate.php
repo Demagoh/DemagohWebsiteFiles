@@ -6,8 +6,8 @@ echo '<!DOCTYPE html>
 
 $headElementData = [
     "title" => "Page template",
-    "icon" => "../media/pageTemplateIcon.png",
-    "stylesheet" => "../styles/pageTemplateStyle.css",
+    "icon" => "/media/pageTemplateIcon.png",
+    "stylesheet" => "/styles/pageTemplateStyle.css",
     "keywords" => "template",
     "description" => "This page was created from a template. Please change the values in the headElementData array to the appropriate ones."
 ];
@@ -32,7 +32,7 @@ redirectToRemovePortNumberFromURL("/templates/pageTemplate");
 
 
 
-    <body>
+    <body style="visibility: hidden">
         empty for now lol
     </body>
 
@@ -52,6 +52,8 @@ redirectToRemovePortNumberFromURL("/templates/pageTemplate");
 
 <?php
 
-echo '</html>';
+echo '
+    <script src="/javascript/showBody.js"></script>
+</html>';
 
 ?>

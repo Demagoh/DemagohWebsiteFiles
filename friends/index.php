@@ -6,8 +6,8 @@ echo '<!DOCTYPE html>
 
 $headElementData = [
     "title" => "My friends",
-    "icon" => "../media/friendsIcon.png",
-    "stylesheet" => "../styles/friendsPageStyle.css",
+    "icon" => "/media/friendsIcon.png",
+    "stylesheet" => "/styles/friendsPageStyle.css",
     "keywords" => "friends",
     "description" => "A list of all my friends that agreed to be featured on my website."
 ];
@@ -32,7 +32,7 @@ redirectToRemovePortNumberFromURL("/friends/");
 
 
 
-    <body>
+    <body style="visibility: hidden">
         <div id="page">
             <a href="/">Home</a>
         </div>
@@ -54,6 +54,8 @@ redirectToRemovePortNumberFromURL("/friends/");
 
 <?php
 
-echo '</html>';
+echo '
+    <script src="/javascript/showBody.js"></script>
+</html>';
 
 ?>

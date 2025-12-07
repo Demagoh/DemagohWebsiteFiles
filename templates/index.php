@@ -46,7 +46,9 @@ redirectToRemovePortNumberFromURL("/templates/");
                 <li><a class="link" href="redirectPageTemplate">Redirect page template</a></li>
             </ul>
             <br />
-            <a href="/">Home</a>
+            <a href="/about/">> Back to the about page <</a>
+            <br />
+            <a href="/">> Back to the home page <</a>
         </div>
     </body>
 
@@ -66,8 +68,8 @@ redirectToRemovePortNumberFromURL("/templates/");
 
 <?php
 
+insertScript("/javascript/showBody.js");
 echo '
-    <script src="/javascript/showBody.js"></script>
 </html>';
 
 ?>

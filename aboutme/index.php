@@ -5,16 +5,16 @@ echo '<!DOCTYPE html>
 <html>';
 
 $headElementData = [
-    "title" => "My friends",
-    "icon" => "/media/friendsIcon.png",
-    "stylesheet" => "/styles/friendsPageStyle.css",
-    "keywords" => "friends",
-    "description" => "A list of all my friends that agreed to be featured on my website."
+    "title" => "About me",
+    "icon" => "/media/DemagohPFP.png",
+    "stylesheet" => "/styles/aboutmePageStyle.css",
+    "keywords" => "aboutme",
+    "description" => "Who am i?"
 ];
 
 htmlPageHead($headElementData);
 
-redirectToRemovePortNumberFromURL("/friends/");
+redirectToRemovePortNumberFromURL("/aboutme/");
 
 ?>
 

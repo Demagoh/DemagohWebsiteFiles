@@ -38,8 +38,8 @@ redirectToRemovePortNumberFromURL("/");
             <ul>
                 <li><a href="gyped/">Gyped</a></li>
                 <li><a href="friends/">Friends</a></li>
-                <li><a href="templates/">Templates</a></li>
-                <li><a href="styles/">Styles</a></li>
+                <li><a href="aboutme/">About me</a></li>
+                <li><a href="about/">About</a></li>
             </ul>
             <br />
             Links:
@@ -47,14 +47,6 @@ redirectToRemovePortNumberFromURL("/");
                 <li><a href="https://mas.to/@DemagohOfficial" target="_blank">Mastodon</a></li>
                 <li><a href="https://github.com/demagoh" target="_blank">Github</a></li>
                 <li><a href="https://github.com/Demagoh/DemagohWebsiteFiles" target="_blank">Website's Github repo</a></li>
-            </ul>
-            <br />
-            This website uses/runs on:
-            <ul>
-                <li><a href="https://ubuntu.com/" target="_blank">Ubuntu-based server</a></li>
-                <li><a href="https://nginx.org/en/index.html" target="_blank">nginx</a></li>
-                <li><a href="https://www.php.net/" target="_blank">PHP scripting language</a></li>
-                <li><a href="https://www.cloudflare.com/" target="_blank">Cloudflare</a></li>
             </ul>
         </div>
     </body>
@@ -75,8 +67,8 @@ redirectToRemovePortNumberFromURL("/");
 
 <?php
 
+insertScript("/javascript/showBody.js");
 echo '
-    <script src="/javascript/showBody.js"></script>
 </html>';
 
 ?>

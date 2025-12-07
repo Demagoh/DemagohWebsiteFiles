@@ -35,6 +35,7 @@ redirectToRemovePortNumberFromURL("/templates/pageTemplate");
     <body style="visibility: hidden">
         <div id="page">
             empty for now lol
+            <a href="/">> Back to the home page <</a>
         </div>
     </body>
 
@@ -54,8 +55,8 @@ redirectToRemovePortNumberFromURL("/templates/pageTemplate");
 
 <?php
 
+insertScript("/javascript/showBody.js");
 echo '
-    <script src="/javascript/showBody.js"></script>
 </html>';
 
 ?>

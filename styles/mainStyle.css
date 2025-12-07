@@ -1,3 +1,9 @@
+h1 {
+    font-size: clamp(1.2rem, 2.35vh, 2.4rem);
+    margin-bottom: clamp(1.2rem, 2.35vh, 2.4rem);
+    margin-top: 0;
+}
+
 * {
     font-family: monospace;
     font-size: clamp(0.9rem, 1.75vh, 2rem);
@@ -35,6 +41,8 @@ a:hover {
 a:visited {
     color: #12B812;
     font-style: italic;
+    letter-spacing: normal;
+    transition: all 0.1s ease;
 }
 
 #page {
@@ -60,4 +68,18 @@ a:visited {
         rotate: 0deg;
         opacity: 1;
     }
+}
+
+table {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    height: calc(100vh - clamp(1rem, 10pt, 2rem)*2 - clamp(1.2rem, 2.35vh, 2.4rem)*2);
+    max-height: calc(100vh - clamp(1rem, 10pt, 2rem)*2 - clamp(1.2rem, 2.35vh, 2.4rem)*2);
+}
+
+td {
+    vertical-align: top;
+    min-width: 30%;
+    overflow: hidden;
 }

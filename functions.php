@@ -1,5 +1,10 @@
 <?php
 
+function insertScript($script) {
+    echo '
+    <script src="' .$script ."?" .time() .'"></script>';
+}
+
 function metaRedirectToPage($page) {
     echo '<meta http-equiv="refresh" content="0; url=https://' .(str_contains($_SERVER["HTTP_HOST"], $_SERVER["SERVER_NAME"]) ? $_SERVER["SERVER_NAME"] : str_replace("www.", "", $_SERVER["SERVER_NAME"])) .$page .'">';
 }

@@ -1,0 +1,15 @@
+@import url("hiddenPageStyle.css");
+
+td:has(> #descriptions) {
+    vertical-align: middle;
+    width: 70%;
+}
+
+#descriptions {
+    opacity: 0;
+}
+
+.tableImage {
+    width: 90%;
+    margin: 5% 5% 0 5%;
+}

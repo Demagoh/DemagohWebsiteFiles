@@ -40,7 +40,9 @@ redirectToRemovePortNumberFromURL("/styles/");
                 <li><a class="link" href="https://raw.githubusercontent.com/Demagoh/DemagohWebsiteFiles/refs/heads/master/styles/hiddenPageStyle.css">Hidden page style</a></li>
             </ul>
             <br />
-            <a href="/">Home</a>
+            <a href="/about/">> Back to the about page <</a>
+            <br />
+            <a href="/">> Back to the home page <</a>
         </div>
     </body>
 
@@ -60,8 +62,8 @@ redirectToRemovePortNumberFromURL("/styles/");
 
 <?php
 
+insertScript("/javascript/showBody.js");
 echo '
-    <script src="/javascript/showBody.js"></script>
 </html>';
 
 ?>

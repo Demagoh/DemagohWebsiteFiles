@@ -8,6 +8,11 @@
     color: #AAA;
 }
 
+.link:visited {
+    color: #DADADA;
+    font-style: italic;
+}
+
 span {
     color: #888;
 }

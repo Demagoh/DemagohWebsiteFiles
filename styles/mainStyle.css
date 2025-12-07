@@ -31,6 +31,11 @@ a:hover {
     transition: all 0.1s ease;
 }
 
+a:visited {
+    color: #12B812;
+    font-style: italic;
+}
+
 #page {
     padding: clamp(1rem, 10pt, 2rem);
     animation-name: slideIn;

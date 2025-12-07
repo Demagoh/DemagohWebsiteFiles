@@ -33,7 +33,9 @@ redirectToRemovePortNumberFromURL("/templates/pageTemplate");
 
 
     <body style="visibility: hidden">
-        empty for now lol
+        <div id="page">
+            empty for now lol
+        </div>
     </body>
 
 

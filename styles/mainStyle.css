@@ -6,6 +6,7 @@
 html, body {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -42,11 +43,12 @@ a:visited {
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
+    height: calc(100vh - clamp(1rem, 10pt, 2rem)*2);
 }
 
 @keyframes slideIn {
     from {
-        transform: translate(0.25rem, 3rem);
+        transform: translate(0.75rem, 3rem);
         rotate: -4deg;
         opacity: 0;
     }

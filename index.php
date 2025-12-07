@@ -39,6 +39,7 @@ redirectToRemovePortNumberFromURL("/");
                 <li><a href="gyped/">Gyped</a></li>
                 <li><a href="friends/">Friends</a></li>
                 <li><a href="templates/">Templates</a></li>
+                <li><a href="styles/">Styles</a></li>
             </ul>
             <br />
             Links:

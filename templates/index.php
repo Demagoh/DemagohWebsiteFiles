@@ -6,8 +6,8 @@ echo '<!DOCTYPE html>
 
 $headElementData = [
     "title" => "Templates list",
-    "icon" => "/media/pageTemplateIcon.png",
-    "stylesheet" => "/styles/templatesPageStyle.css",
+    "icon" => "/media/hiddenPageIcon.png",
+    "stylesheet" => "/styles/hiddenPageStyle.css",
     "keywords" => "templates",
     "description" => "A page with links to the raw files of my page templates on my Github repo."
 ];

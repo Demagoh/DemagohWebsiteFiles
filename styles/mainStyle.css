@@ -1,7 +1,33 @@
+h1, h2, h1 > span {
+    color: white;
+}
+
 h1 {
-    font-size: clamp(1.2rem, 2.35vh, 2.4rem);
-    margin-bottom: clamp(1.2rem, 2.35vh, 2.4rem);
+    font-size: clamp(1.5rem, 2.95vh, 3rem);
+    margin-bottom: clamp(1.5rem, 2.95vh, 3rem);
     margin-top: 0;
+}
+
+h2 {
+    font-size: clamp(1.2rem, 2.35vh, 2.4rem);
+    margin-top: clamp(1.2rem, 2.35vh, 2.4rem);
+    font-style: italic;
+}
+
+h1 > span {
+    font-size: clamp(1.5rem, 2.95vh, 3rem);
+    color: #222;
+    transition: all 0.1s ease;
+}
+
+h1 > span:hover {
+    color: white;
+    transition: all 0.1s ease;
+}
+
+#titleImage {
+    height: clamp(1.2rem, 2.35vh, 2.4rem);
+    margin-right: clamp(0.9rem, 1.75vh, 2rem);
 }
 
 * {
@@ -19,7 +45,7 @@ body {
     background-color: #222222;
     padding: 0;
     margin: 0;
-    color: white;
+    color: #DDD;
 }
 
 ul {

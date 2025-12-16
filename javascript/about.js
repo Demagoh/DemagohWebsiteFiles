@@ -28,6 +28,9 @@ const timing = {
 
 let currentlyShowing = null;
 let reversed = false;
+let hidden = true;
+
+let concealAnimationStart = new Date() / 1;
 
 for (let link of links) {
     link.addEventListener("mouseover", function (e) {
@@ -45,17 +48,26 @@ for (let link of links) {
             timing.delay = 100;
             reversed = false;
         }
+        hidden = false;
         descriptions.animate(revealDefinition, timing).play();
     });
 
     link.addEventListener("mouseout", function (e) {
         e.preventDefault();
         if (currentlyShowing === link.id) {
-            currentlyShowing === null;
+            currentlyShowing = null;
             timing.duration = 1000;
             timing.delay = 6000;
+            concealAnimationStart = new Date() / 1;
             descriptions.animate(concealDefinition, timing)
             reversed = true;
         }
     });
 }
+
+setInterval(function() {
+    if (currentlyShowing === null && !hidden && (new Date()/1)-concealAnimationStart > timing.duration+timing.delay) {
+        hidden = true;
+        descriptions.innerHTML = "";
+    }
+}, 10);

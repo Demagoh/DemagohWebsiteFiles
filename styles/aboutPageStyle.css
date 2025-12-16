@@ -1,8 +1,23 @@
 @import url("hiddenPageStyle.css");
 
-td:has(> #descriptions) {
+div:has(> #descriptions) {
+    position: absolute;
     vertical-align: middle;
-    width: 70%;
+    width: 75%;
+    height: 100vh;
+    top: 0;
+    right: 0;
+}
+
+#descriptions {
+    padding: clamp(2.4rem, 4.7vh, 4.8rem) clamp(2.4rem, 4.7vh, 4.8rem) 0 clamp(2.4rem, 4.7vh, 4.8rem);
+    background-color: #222222;
+    border-left: white solid clamp(0.6rem, 1.2vh, 1.2rem);
+    height: 100%;
+}
+
+#pageContent {
+    display: flex;
 }
 
 #descriptions {

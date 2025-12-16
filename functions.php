@@ -26,7 +26,8 @@ function htmlPageHead($headElementData) {
         <meta name="description" content="' .$headElementData["description"] .'">
         <meta name="author" conent="Demagoh">
         <meta name="viewport" content="width: device-width, initial-scale: 1.0">
-    </head>';
+    </head>
+';
 }
 
 function htmlRedirectHead($destinationName, $destinationPage) {
@@ -40,7 +41,8 @@ function htmlRedirectHead($destinationName, $destinationPage) {
                 background-color: #000;
             }
         </style>
-    </head>';
+    </head>
+';
 }
 
 if (str_replace("/", "", $_SERVER["PHP_SELF"]) == "functions.php") {

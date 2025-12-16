@@ -17,21 +17,6 @@ htmlPageHead($headElementData);
 redirectToRemovePortNumberFromURL("/");
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <body style="visibility: hidden">
         <div id="page">
             Pages:
@@ -50,21 +35,6 @@ redirectToRemovePortNumberFromURL("/");
             </ul>
         </div>
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 
 insertScript("/javascript/showBody.js");

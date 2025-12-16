@@ -17,41 +17,11 @@ htmlPageHead($headElementData);
 redirectToRemovePortNumberFromURL("/friends/");
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <body style="visibility: hidden">
         <div id="page">
             <a href="/">> Back to the home page <</a>
         </div>
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 
 insertScript("/javascript/showBody.js");

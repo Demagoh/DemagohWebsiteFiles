@@ -17,21 +17,6 @@ htmlPageHead($headElementData);
 redirectToRemovePortNumberFromURL("/templates/");
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <body style="visibility: hidden">
         <div id="page">
             My page templates <span>(links to the raw files on my Github repo)</span>:
@@ -51,21 +36,6 @@ redirectToRemovePortNumberFromURL("/templates/");
             <a href="/">> Back to the home page <</a>
         </div>
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 
 insertScript("/javascript/showBody.js");

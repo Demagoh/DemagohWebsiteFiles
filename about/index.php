@@ -17,21 +17,6 @@ htmlPageHead($headElementData);
 redirectToRemovePortNumberFromURL("/about/");
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <body style="visibility: hidden">
         <div id="page">
             <h1>About this website</h1>
@@ -58,21 +43,6 @@ redirectToRemovePortNumberFromURL("/about/");
             </div>
         </div>
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 
 insertScript("/javascript/about.js");

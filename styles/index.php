@@ -17,21 +17,6 @@ htmlPageHead($headElementData);
 redirectToRemovePortNumberFromURL("/styles/");
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <body style="visibility: hidden">
         <div id="page">
             My page styles <span>(links to the important raw files on my Github repo)</span>:
@@ -45,21 +30,6 @@ redirectToRemovePortNumberFromURL("/styles/");
             <a href="/">> Back to the home page <</a>
         </div>
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 
 insertScript("/javascript/showBody.js");

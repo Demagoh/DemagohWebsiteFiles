@@ -54,6 +54,7 @@ redirectToRemovePortNumberFromURL("/");
                 <li><a href="/aboutme/">About me</a> (WIP)</li>
                 <li><a href="/about/">About</a> (WIP)</li>
             </ul>
+            <span style="white-space: pre;"> </span>
         </div>
     </body>
 <?php

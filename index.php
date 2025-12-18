@@ -60,7 +60,7 @@ redirectToRemovePortNumberFromURL("/");
                 <li><a href="/friends/">Friends</a> (WIP)</li>
                 <li><a href="/pages/">Pages</a></li>
                 <li><a href="/aboutme/">About me</a> (WIP)</li>
-                <li><a href="/about/">About</a> (WIP)</li>
+                <li><a href="/about/">About</a></li>
             </ul>
             <span style="white-space: pre;"> </span>
         </div>

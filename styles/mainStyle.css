@@ -14,6 +14,17 @@ h2 {
     font-style: italic;
 }
 
+h3 {
+    font-size: clamp(1.1rem, 2.15vh, 2.2rem);
+    font-size: clamp(1.1rem, 2.15vh, 2.2rem);
+}
+
+h4 {
+    font-size: clamp(1rem, 2vh, 2rem);
+    font-size: clamp(1rem, 2vh, 2rem);
+    font-style: italic;
+}
+
 h1 > span {
     font-size: clamp(1.5rem, 2.95vh, 3rem);
     color: #222;
@@ -116,4 +127,16 @@ code {
     border-radius: 2pt;
     padding: 0 2pt;
     background-color: #111;
+}
+
+.level1OL {
+    list-style: decimal;
+}
+
+.level2OL {
+    list-style: upper-latin;
+}
+
+.level3OL {
+    list-style: upper-roman;
 }

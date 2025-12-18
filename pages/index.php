@@ -29,19 +29,29 @@ redirectToRemovePortNumberFromURL("/pages/");
                     (yes, it is an actual directory, you can visit <a href="https://github.com/Demagoh/DemagohWebsiteFiles/tree/master/pages" target="_blank">this link</a> to the Github repo for this website if you don't believe me)</li>
             </ol>
             A page can <i>in theory *wink wink*</i> also be a file inside a directory, but I wouldn't tell you if a page like that existed, right? :P<br />
+            <br />
             <h2>> Why do I define pages this way?</h2>
             Why not?<br />
             In my eyes, this "works", so I'm not complaining.<br />
-            <h2>> How does this work behind the scenes?</h2>
-            Look, you can look this up, it's really nothing hard to do. And if you don't want to look this up, my <a href="https://github.com/Demagoh/DemagohWebsiteFiles" target="_blank">Github repo</a> for this website has almost* all of the files for this website on it.<br />
-            If you really want to know, I just configured my nginx config to work enable me to not need to specify an <code>index.html</code> or <code>index.php</code> file in the URL.<br />
+            <br />
+            <h2>> How does this navigation work behind the scenes and how can I make mine work this way too?</h2>
+            Look, you can look this up, it's not some obscure thing you have to scour the entire web to find.<br />
+            You can also just check exactly how I made this website <a href="/about/thehow">here</a>.<br />
+            If you really want to know <i>this instant</i>, I just configured my nginx config to enable me to not need to specify an <code>index.html</code> or <code>index.php</code> file in the URL.<br />
             No, I'm not giving you my nginx config.<br />
+            <br />
+            <h2>> How did you make this website?</h2>
+            I won't really go into too much detail on this specific page, but I have provided more insight on <a href="/about/thehow">this page</a>.<br />
+            I have made the <a href="https://github.com/Demagoh/DemagohWebsiteFiles" target="_blank">Github repo</a> for this website public for those of you who want to see the PHP files that make up this website. It has almost* all of the files for this website on it.<br />
+            <br />
+            <br />
             <br />
             <br />
             <br />
             <a href="/">> Back to the home page <</a><br />
             <br />
-            *I excluded a few directories and/or files which are listed in the <a href="https://github.com/Demagoh/DemagohWebsiteFiles/blob/master/.gitignore" target="_blank">.gitignore</a>, with the additional exception of the nginx configs, which <b>I will not share</b>.
+            *I excluded a few directories and/or files which are listed in the <a href="https://github.com/Demagoh/DemagohWebsiteFiles/blob/master/.gitignore" target="_blank">.gitignore</a>, with the additional exception of the nginx configs, which <b>I will not share</b>.<br />
+            <span style="white-space: pre;"> </span>
         </div>
     </body>
 <?php

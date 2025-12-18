@@ -109,3 +109,10 @@ td {
     min-width: 30%;
     overflow: hidden;
 }
+
+code {
+    border: 2pt solid white;
+    border-radius: 2pt;
+    padding: 0 2pt;
+    background-color: #111;
+}

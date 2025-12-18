@@ -80,16 +80,22 @@ redirectToRemovePortNumberFromURL("/about/thehow");
             I used a normal USB 8GB flash drive that I flashed with an ISO image of <a href="https://ubuntu.com/server" target="_blank">Ubuntu</a>.<br />
             To flash the drive I used <a href="https://rufus.ie/en/" target="_blank">Rufus</a>, a Windows program for flashing ISO images onto USB flash drives, as at the time I was still on Windows.<br />
             You could also use <a href="https://www.ventoy.net/en/index.html" target="_blank">Ventoy</a> to be able to have multiple different ISOs on the flash drive without needing to flash the ISOs (do your own research if you're curious).<br />
+            <br />
             For the USB flash drive, make sure that you use one that is at the very least 4GB in size. Back up anything you might have on it before you flash an ISO image on it.<br />
             <br />
             <h3 id="serverSetupInstallingOS">> Installing the OS</h3>
             Depending on what OS you chose to install on your server you should follow the appropriate instructions or tutorials for it. Since I do not use the Windows Server I will be unable to give you instructions for how to install this specific OS.<br />
             I will also not be sharing how to set up the Ubuntu Server because I don't remember what the proces is like, I don't feel like repeating it and if it changed I would have to update the instructions.<br />
+            <br />
             With the OS installed you should also make sure that the OS is up to date, that the firewall (if you have one) is set up so that it allows HTTP and HTTPS traffic in and out of the server and so on.<br />
             <br />
             <br />
             <br />
             <h2 id="portForwarding">> Setting up port forwarding (for hosting at home)</h2>
+            Since I'm hosting my website on my own hardware I had to enable port forwarding on the router that's connected to the internet on specific ports that Cloudflare support for the HTTPS protocol. This is because it is generally a bad idea to port forward ports 80 (the default HTTP port) and 443 (the default HTTPS) port for security related reasons (you can always do your own research if you want).<br />
+            If you're using a third party provider as the host for your website you don't have to do anything, but you might have some issues with following what I did later on if you do not have direct "administrative" access to the server which hosts your website (if you're using something like <a href="https://www.wix.com/" target="_blank">Wix</a>, <a href="https://www.squarespace.com/" target="_blank">Squarespace</a> and other such services commonly advertised on YouTube for example).<br />
+            <br />
+            However, if like me you're using your own hardware, either in a specific physical location or your residence, you'll have to go and see how to enable port forwarding on your outside, internet connected router, which your ISP provided when they hooked up your the internet connection. You will need direct access to the router itself, so if you do not have it you'll have to <i>find a legal/ethical way to get it</i>.<br />
             <br />
             <br />
             <br />

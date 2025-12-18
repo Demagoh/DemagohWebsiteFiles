@@ -5,21 +5,21 @@ echo '<!DOCTYPE html>
 <html>';
 
 $headElementData = [
-    "title" => "Page template",
+    "title" => "The how",
     "icon" => "/media/hiddenPageIcon.png",
-    "stylesheet" => "/styles/pageTemplateStyle.css",
-    "keywords" => "template",
-    "description" => "This page was created from a template. Please change the values in the headElementData array to the appropriate ones."
+    "stylesheet" => "/styles/thehowPageStyle.css",
+    "keywords" => "the how",
+    "description" => "A somewhat accurate description of how I made my website."
 ];
 
 htmlPageHead($headElementData);
 
-redirectToRemovePortNumberFromURL("/templates/pageTemplate");
+redirectToRemovePortNumberFromURL("/about/thehow");
 
 ?>
     <body style="visibility: hidden">
         <div id="page">
-            empty for now lol
+            <a href="/about/">> Back to the about page <</a><br />
             <a href="/">> Back to the home page <</a>
         </div>
     </body>

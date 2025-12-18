@@ -33,6 +33,7 @@ h1 > span:hover {
 * {
     font-family: monospace;
     font-size: clamp(0.9rem, 1.75vh, 2rem);
+    z-index: 1;
 }
 
 html, body {

@@ -48,6 +48,7 @@ redirectToRemovePortNumberFromURL("/pages/");
             <br />
             <br />
             <br />
+            <a href="/about/">> Back to the about page <</a><br />
             <a href="/">> Back to the home page <</a><br />
             <br />
             *I excluded a few directories and/or files which are listed in the <a href="https://github.com/Demagoh/DemagohWebsiteFiles/blob/master/.gitignore" target="_blank">.gitignore</a>, with the additional exception of the nginx configs, which <b>I will not share</b>.<br />

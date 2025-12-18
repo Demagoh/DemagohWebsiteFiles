@@ -7,6 +7,7 @@ content["PHP"] = '<b>PHP</b> is a general-purpose scripting language aimed more 
 content["Cloudflare"] = '<b>Cloudflare</b> is an American company which provides a few too many different internet servies for me to list here. For my website I use them for the domain name (I was lazy OK?), a reverse proxy to the server that hosts the website and a few other minor things.<br /><br /><img class="tableImage" src="/media/CloudflareMainPage7_12_2025.png" target="_blank" alt="A screenshot of this software\'s website taken on the 7th of December, 2025." />';
 content["templates"] = "";
 content["styles"] = "";
+content["pages"] = "";
 
 const revealDefinition = [
     { opacity: "0" },
@@ -35,7 +36,7 @@ let concealAnimationStart = new Date() / 1;
 for (let link of links) {
     link.addEventListener("mouseover", function (e) {
         e.preventDefault();
-        if (link.id === "templates" || link.id === "styles") {
+        if (link.id === "templates" || link.id === "styles" || link.id == "pages") {
             return;
         }
         for (let animation of document.getAnimations()) {
@@ -49,6 +50,7 @@ for (let link of links) {
             reversed = false;
         }
         hidden = false;
+        descriptions.parentElement.style.zIndex = 100;
         descriptions.animate(revealDefinition, timing).play();
     });
 
@@ -69,5 +71,6 @@ setInterval(function() {
     if (currentlyShowing === null && !hidden && (new Date()/1)-concealAnimationStart > timing.duration+timing.delay) {
         hidden = true;
         descriptions.innerHTML = "";
+        descriptions.parentNode.style.zIndex = 0;
     }
 }, 10);

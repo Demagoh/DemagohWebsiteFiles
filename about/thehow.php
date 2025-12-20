@@ -60,8 +60,6 @@ redirectToRemovePortNumberFromURL("/about/thehow");
                 <li><a href="#CloudflareProxies">Setting up Cloudflare proxies</a></li>
                 <li><a href="#SSLCertificate">Creating an SSL certificate</a></li>
                 <li><a href="#nginxSetup2">Setting up nginx (part 2)</a></li>
-                <li><a href="#homePagePHPSetup">Setting up the home page PHP</a></li>
-                <li><a href="#creatingPHPFunctions">Creating PHP functions for more "dynamic" or "modular" page creation</a></li>
                 <li><a href="#conclusion">Conclusion</a></li>
             </ol>
             <br />
@@ -338,34 +336,39 @@ server {
             Once you're done messing around with your DNS records you can also create an <code>Origin Rule</code> in <code>Rules > Overview</code> which will redirect all the traffic to your domain to the port on your outside router that you set in the <a href="#portForwarding">Setting up port forwarding (for hosting at home)</a> chapter. Note that you won't have to do this if you successfully port forwarded ports 80 and/or 443 without your router complaining (like my ISP provided one did).<br />
             <br />
             Another thing that would be useful to do at this stage is to check if your router needs any exceptions for its <code>DNS Rebind Protection</code>. If it does make sure you add your domain to the list of exceptions (you only need to add the domain itself and none of its combinations with a subdomain).<br />
-            This way you'll be able to have the Cloudflare DNS records updating to your new dynamically allocated public IP without your router complaining. Don't ask me how I figured this out.<br />  
+            This way you'll be able to have the Cloudflare DNS records updating to your new dynamically allocated public IP without your router complaining. Don't ask me how I figured this out.<br />
             <br />
             <br />
             <br />
             <h2 id="SSLCertificate">> Creating an SSL certificate</h2>
+            Since I barely understood how exactly this works I'd rather not go explaining how exactly you can get and use an SSL certificate in order to get your website to work over HTTPS.<br />
+            Instead I'll link you to the exact article on <a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04" target="_blank">DigitalOcean</a> that I followed and wish you luck.<br />
+            You might have to play around with the firewall a little bit, try turning it off completely first before you try to troubleshoot anything else (don't ask me how I know).<br />
+            And you will have to change the port number in the nginx <listen> directive to the number of the port you port forwarded.<br />
             <br />
             <br />
             <br />
             <h2 id="nginxSetup2">> Setting up nginx (part 2)</h2>
-            <br />
-            <br />
-            <br />
-            <h2 id="homePagePHPSetup">> Setting up the home page PHP</h2>
-            <br />
-            <br />
-            <br />
-            <h2 id="creatingPHPFunctions">> Creating PHP functions for more "dynamic" or "modular" page creation</h2>
+            Depending on what you want to do on your website you might want to add a few <code>add_header</code> directives to your nginx config.<br />
+            Here's one example of this directive you could use to allow JavaScript files on the client to call PHP files on the server to do things (it goes in the <code>location</code> blocks):<br />
+            <div class="wideCode"><pre>if ($http_origin ~* "^https:?://(your.domain|www.your.domain)$") { # this supports a normal domain and a subdomain at the same time (your browser will complain if you provide both options in the same header)
+    add_header 'Access-Control-Allow-Origin' '$http_origin' always;
+}</pre></div>
             <br />
             <br />
             <br />
             <h2 id="conclusion">> Conclusion</h2>
+            To conclude, I've not only shown what almost everything I've done to make this website, I've also given an example for some things so you can see how you could do them too.<br />
+            I do not plan to update this because it was a pain to write, nor do I want to ever have to go fix issues I made because I didn't triple check some command I wrote.<br />
+            If you are still curious or you want to learn more I politely ask you to go do your own research. You'll probably learn more that way (and by just trying things until something works) than you would trying to understand whatever I wrote here.<br />
             <br />
             <br />
             <br />
             <br />
             <br />
             <a href="/about/">> Back to the about page <</a><br />
-            <a href="/">> Back to the home page <</a>
+            <a href="/">> Back to the home page <</a><br />
+            <span style="white-space: pre;"> </span>
         </div>
     </body>
 <?php

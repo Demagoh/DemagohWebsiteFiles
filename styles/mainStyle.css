@@ -135,6 +135,10 @@ code, .wideCode {
     padding: clamp(1rem, 10pt, 2rem);
 }
 
+pre {
+    white-space: pre-wrap;
+}
+
 .level1OL {
     list-style: decimal;
 }

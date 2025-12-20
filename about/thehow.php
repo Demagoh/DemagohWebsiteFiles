@@ -41,7 +41,21 @@ redirectToRemovePortNumberFromURL("/about/thehow");
                     </ol>
                 </li>
                 <li><a href="#portForwarding">Setting up port forwarding (for hosting at home)</a></li>
-                <li><a href="#nginxSetupPt1">Setting up nginx (part 1)</a></li>
+                <li>
+                    <a href="#nginxSetupPt1">Setting up nginx (part 1)</a>
+                    <ol class="level2OL">
+                        <li><a href="#nginxSetupIntroduction">Introduction</a></li>
+                        <li><a href="#nginxSetupInstallingnginx">Installing nginx</a></li>
+                        <li>
+                            <a href="#nginxSetupBasicPage">Putting together a basic page</a>
+                            <ol class="level3OL">
+                                <li><a href="#nginxSetupInstallingPHP">Installing PHP</a></li>
+                                <li><a href="#nginxSetupCreatingAPHPFile">Creating a PHP file</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#nginxSetupBasicHTTPConfiguration">Creating a basic HTTP configuration</a></li>
+                    </ol>
+                </li>
                 <li><a href="#domain">Getting a domain</a></li>
                 <li><a href="#CloudflareProxies">Setting up Cloudflare proxies</a></li>
                 <li><a href="#SSLCertificate">Creating an SSL certificate</a></li>
@@ -144,11 +158,11 @@ redirectToRemovePortNumberFromURL("/about/thehow");
             <br />
             That's it for the Debian-based Linux distributions. If you're using a different Linux distribution you can still use the <code>systemctl</code> commands, just the installing part might not be the same.<br />
             <br />
-            <h3 id="#nginxSetupBasicPage">> Putting together a basic page</h3>
+            <h3 id="nginxSetupBasicPage">> Putting together a basic page</h3>
             Since I'm using PHP files instead of HTML files I had to install PHP on my server.<br />
             I'm going to assume that you're also planning on using PHP (trust me, you'll come to like it in no time) and just move on to its installation.<br />
             <br />
-            <h4 id="#nginxSetupInstallingPHP">Installing PHP</h4>
+            <h4 id="nginxSetupInstallingPHP">Installing PHP</h4>
             You'll have to do the following to install PHP:<br />
             <br />
             We'll be installing a <code>PHP-FPM</code> package, make sure you <b>DO NOT</b> install the <code>PHP</code> package, as that will install Apache's HTTP server and its httpd service, which will conflict with nginx (pretty bad if you ask me).<br />
@@ -174,7 +188,7 @@ redirectToRemovePortNumberFromURL("/about/thehow");
      CGroup: /system.slice/php8.3-fpm.service</pre></div>
             ... then you're all good to go!<br />
             <br />
-            <h4 id="#nginxSetupCreatingAPHPFile">Creating a PHP file</h4>
+            <h4 id="nginxSetupCreatingAPHPFile">Creating a PHP file</h4>
             With PHP installed we can move on to creating a basic page to display when we visit our website:<br />
             <br />
             First we'll create a directory on our server to put all our website's files (with the exception of the nginx configs which we'll create later).<br />
@@ -204,7 +218,7 @@ redirectToRemovePortNumberFromURL("/about/thehow");
 </html>');?></pre></div>
             Save the file and continue on to creating a basic HTTP config.<br />
             <br />
-            <h3 id="#nginxSetupBasicHTTPConfiguration">> Creating a basic HTTP configuration</h3>
+            <h3 id="nginxSetupBasicHTTPConfiguration">> Creating a basic HTTP configuration</h3>
             To test if our nginx works we'll need to create a new nginx config, which is set up to work over HTTP.<br />
             On Linux nginx configs are saved in the <code>/etc/nginx/sites-available/</code> directory, while the actual enabled ones are linked to the <code>/etc/nginx/sites-enabled/</code> directory using symbolic links.<br />
             First we'll clear out both directories of any files (usually there's already a <code>default</code> config that's already enabled, we won't be needing it):<br />

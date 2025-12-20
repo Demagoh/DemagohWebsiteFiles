@@ -106,10 +106,11 @@ redirectToRemovePortNumberFromURL("/about/thehow");
             <br />
             <br />
             <h2 id="portForwarding">> Setting up port forwarding (for hosting at home)</h2>
-            Since I'm hosting my website on my own hardware I had to enable port forwarding on the router that's connected to the internet on specific ports that Cloudflare support for the HTTPS protocol. This is because it is generally a bad idea to port forward ports 80 (the default HTTP port) and 443 (the default HTTPS) port for security related reasons (you can always do your own research if you want).<br />
+            Since I'm hosting my website on my own hardware I had to enable port forwarding on the router that's connected to the internet on specific ports that <a href="https://developers.cloudflare.com/fundamentals/reference/network-ports/#network-ports-compatible-with-cloudflares-proxy" target="_blank">Cloudflare supports</a> for the HTTPS protocol. This is because it is generally a bad idea to port forward ports 80 (the default HTTP port) and 443 (the default HTTPS) port for security related reasons (you can always do your own research if you want).<br />
             If you're using a third party provider as the host for your website you don't have to do anything, but you might have some issues with following what I did later on if you do not have direct "administrative" access to the server which hosts your website (if you're using something like <a href="https://www.wix.com/" target="_blank">Wix</a>, <a href="https://www.squarespace.com/" target="_blank">Squarespace</a> and other such services commonly advertised on YouTube for example).<br />
             <br />
             However, if like me you're using your own hardware, either in a specific physical location or your residence, you'll have to go and see how to enable port forwarding on your outside, internet connected router, which your ISP provided when they hooked up your the internet connection. You will need direct access to the router itself, so if you do not have it you'll have to <i>find a legal/ethical way to get it</i>.<br />
+            I recommend you also use a port that <a href="https://developers.cloudflare.com/fundamentals/reference/network-ports/#network-ports-compatible-with-cloudflares-proxy" target="_blank">Cloudflare supports</a>, as it will almost definitely work with every router you could have.
             <br />
             <br />
             <br />
@@ -322,10 +323,22 @@ server {
             <br />
             <br />
             <h2 id="domain">> Getting a domain</h2>
+            I registered my domain with Cloudflare. I could've used another domain provider if I wanted but chose not to.<br />
+            If you already bought a domain or are planning to buy one from a domain provider that's not Cloudflare you'll have to look up how to add your domain to your Cloudflare account in order to be able to then set up proxies in Cloudflare's DNS.<br />
+            If you already bought a domain or are planning to buy one from Cloudflare then you won't need to do anything do add the domain to your Cloudflare account as it will already be linked to it.<br />
             <br />
             <br />
             <br />
             <h2 id="CloudflareProxies">> Setting up Cloudflare proxies</h2>
+            Once you have your domain added to your Cloudflare account open it and then proceed to <code>DNS > Records</code>.<br />
+            Here you'll add an <code>A</code> record with your domain name as its name, the public IP address of the network to which you have connected your server (you can check this IP by googling "what's my ip" when you're on the same network as the server) and you'll enable the proxy.<br />
+            I personally have added another <code>A</code> record with my domain name (demagoh.com) with the <code>www</code> subdomain (so the full domain is now <code>www.demagoh.com</code>), which is also proxied.<br />
+            If you have a dynamic public IP you're going to want to set up a script on your server to automatically update the Cloudflare DNS records to the new public IP your internet service provider (ISP) provided you with. Since I'm too lazy to go into detail on how this works I'll just ask you to follow <a href="https://linuxconfig.org/automate-dynamic-ip-updates-for-your-domain-with-cloudflare-and-bash-script" target="_blank">this guide</a> to make this script. I think it explains it pretty well.<br />
+            <br />
+            Once you're done messing around with your DNS records you can also create an <code>Origin Rule</code> in <code>Rules > Overview</code> which will redirect all the traffic to your domain to the port on your outside router that you set in the <a href="#portForwarding">Setting up port forwarding (for hosting at home)</a> chapter. Note that you won't have to do this if you successfully port forwarded ports 80 and/or 443 without your router complaining (like my ISP provided one did).<br />
+            <br />
+            Another thing that would be useful to do at this stage is to check if your router needs any exceptions for its <code>DNS Rebind Protection</code>. If it does make sure you add your domain to the list of exceptions (you only need to add the domain itself and none of its combinations with a subdomain).<br />
+            This way you'll be able to have the Cloudflare DNS records updating to your new dynamically allocated public IP without your router complaining. Don't ask me how I figured this out.<br />  
             <br />
             <br />
             <br />

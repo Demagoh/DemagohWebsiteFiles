@@ -1,1 +1,49 @@
 @import url("mainStyle.css");
+
+.description {
+    border: clamp(0.15rem, 0.3vh, 0.3rem) solid white;
+    border-radius: clamp(0.15rem, 0.3vh, 0.3rem);
+    padding: clamp(1rem, 10pt, 2rem);
+    margin: clamp(3rem, 30pt, 6rem);
+}
+
+table {
+    width: calc(100vw - clamp(1rem, 10pt, 2rem)*4 - clamp(3rem, 30pt, 6rem)*2);
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+}
+
+caption {
+    text-align: left;
+    font-size: clamp(1.2rem, 2.35vh, 2.4rem);
+    padding: clamp(0.3rem, 0.6vh, 0.6rem) 0 clamp(0.6rem, 1.15vh, 1.2rem) clamp(2.4rem, 4.7vh, 4.8rem);
+    font-style: italic;
+    font-weight: bold;
+    border-bottom: clamp(0.15rem, 0.3vh, 0.3rem) solid white;
+    margin-bottom: clamp(0.6rem, 1.15vh, 1.2rem);
+}
+
+td:not(:has(div)) {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+td {
+    min-height: 100%;
+    min-width: 50%;
+    vertical-align: top;
+    padding: clamp(1rem, 10pt, 2rem);
+}
+
+hr {
+    width: 100%;
+    color: white;
+}
+
+.underline {
+    text-decoration: underline;
+    font-weight: bold;
+    font-style: italic;
+    color: #CCC;
+}

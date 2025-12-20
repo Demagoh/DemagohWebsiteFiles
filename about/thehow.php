@@ -22,7 +22,7 @@ redirectToRemovePortNumberFromURL("/about/thehow");
             <h1>The how behind this website</h1>
             <h2>> What is this page for?</h2>
             First of all, this is a stupid question to ask if you followed one of the links I put on one of the other pages on this website, because you had to <i>choose</i> to come to this page, I didn't force you to open it.<br />
-            If you actually wanted to visit this page or if somebody else sent you here, welcome! On this page I'll show (well, kind of) how I created this website.<br />
+            If you actually wanted to visit this page or if somebody else sent you here, welcome! On this page I'll show (well, kind of) how I created this website. I'm hoping for this to be more of a showcase of what has to be done when rather than exactly what you should do, because at the end of the day, everybody has different hardware, software and experience doing things like this and I really don't want to write an actual guide for every single kind of situation you could find yourself in.<br />
             <br />
             <h2>> Chapters</h2>
             <ol class="level1OL">
@@ -100,6 +100,210 @@ redirectToRemovePortNumberFromURL("/about/thehow");
             <br />
             <br />
             <h2 id="nginxSetupPt1">> Setting up nginx (part 1)</h2>
+            <h3 id="nginxSetupIntroduction">> Introduction</h3>
+            nginx is a web server (and many other things), that I use to serve PHP, CSS, JS and other files to your browser for it to display.<br />
+            I won't go into too much detail on how exactly things in its configuration work, but we create an example of what you could use for you to more easily be able to tell what an nginx config could look like.<br />
+            Without much further ado, here's everything we'll be going through in this part of the nginx setup:<br />
+            <ul>
+                <li>installing nginx</li>
+                <li>putting together a basic page</li>
+                <li>creating a basic HTTP configuration</li>
+            </ul>
+            <br />
+            <h3 id="nginxSetupInstallingnginx">> Installing nginx</h3>
+            Depending on the host (OS on the machine you're using for hosting the server) you'll have to follow specific instructions in order to install nginx.<br />
+            For Debian-based Linux distributions it should go something like so:<br />
+            <br />
+            In a terminal type the following:<br />
+            <div class="wideCode">
+                sudo apt update<br />
+                sudo apt upgrade<br />
+                sudo apt install nginx
+            </div>
+            nginx should now be installed on your system. You can verify this by typing:<br />
+            <div class="wideCode">
+                systemctl status nginx.service
+            </div>
+            If the output you get is anything like the one I got down below...<br />
+            <div class="wideCode"><pre>
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; <span style="color: #12b812">enabled</span>; preset: <span style="color: #12b812">enabled</span>)
+     Active: <span style="color: #12b812">active (running)</span> since Sat 2025-12-20 15:30:02 CET; 1h 10min ago
+       Docs: man:nginx(8)
+    Process: 30872 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 30873 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+   Main PID: 30875 (nginx)
+      Tasks: 5 (limit: 9412)
+     Memory: 7.1M (peak: 8.0M)
+        CPU: 408ms
+     CGroup: /system.slice/nginx.service</pre>
+            </div>
+            ... then you're all good to go! Maybe also consider enabling the service so that it starts on system startup (if it isn't already):<br />
+            <div class="wideCode">
+                sudo systemctl enable nginx.service
+            </div>
+            <br />
+            That's it for the Debian-based Linux distributions. If you're using a different Linux distribution you can still use the <code>systemctl</code> commands, just the installing part might not be the same.<br />
+            <br />
+            <h3 id="#nginxSetupBasicPage">> Putting together a basic page</h3>
+            Since I'm using PHP files instead of HTML files I had to install PHP on my server.<br />
+            I'm going to assume that you're also planning on using PHP (trust me, you'll come to like it in no time) and just move on to its installation.<br />
+            <br />
+            <h4 id="#nginxSetupInstallingPHP">Installing PHP</h4>
+            You'll have to do the following to install PHP:<br />
+            <br />
+            We'll be installing a <code>PHP-FPM</code> package, make sure you <b>DO NOT</b> install the <code>PHP</code> package, as that will install Apache's HTTP server and its httpd service, which will conflict with nginx (pretty bad if you ask me).<br />
+            In a terminal type the following command and install the PHP-FPM tool (make sure to check which version of PHP you want to install and replace the <code>8.3</code> in the package name below with the appropriate version):<br />
+            <div class="wideCode">
+                sudo apt install php8.3-fpm
+            </div>
+            Check if the package has been installed successfully by running (again replace the <code>8.3</code> in the service name with the appropriate version):<br />
+            <div class="wideCode">
+                systemctl status php8.3-fpm.service
+            </div>
+            If the output is anything like the one I got below...<br />
+            <div class="wideCode"><pre>
+     Loaded: loaded (/usr/lib/systemd/system/php8.3-fpm.service; <span style="color: #12b812">enabled</span>; preset: <span style="color: #12b812">enabled</span>)
+     Active: <span style="color: #12b812">active (running)</span> since Sat 2025-12-20 11:29:58 CET; 5h 43min ago
+       Docs: man:php-fpm8.3(8)
+    Process: 27092 ExecStartPost=/usr/lib/php/php-fpm-socket-helper install /run/php/php-fpm.sock /etc/php/8.3/fpm/pool.d/www.conf 83 (code=exited, status=0/SUCCESS)
+   Main PID: 27088 (php-fpm8.3)
+     Status: "Processes active: 0, idle: 2, Requests: 204, slow: 0, Traffic: 0req/sec"
+      Tasks: 3 (limit: 9412)
+     Memory: 9.1M (peak: 9.4M)
+        CPU: 1.135s
+     CGroup: /system.slice/php8.3-fpm.service</pre></div>
+            ... then you're all good to go!<br />
+            <br />
+            <h4 id="#nginxSetupCreatingAPHPFile">Creating a PHP file</h4>
+            With PHP installed we can move on to creating a basic page to display when we visit our website:<br />
+            <br />
+            First we'll create a directory on our server to put all our website's files (with the exception of the nginx configs which we'll create later).<br />
+            On my server (which is Linux-based) I have all of these files stored in a new directory I created called <code>/data/www/</code>. To create it yourself, run the following commands (yes, you could do this more efficiently, leave me alone):<br />
+            <div class="wideCode">
+                cd /<br />
+                mkdir data<br />
+                cd data<br />
+                mkdir www<br />
+                cd /<br />
+                chmod -R 770 data
+            </div>
+            With this we created the new directory and gave everybody except for guest users full permissions for everything inside it.<br />
+            <br />
+            Now create a file named <code>index.php</code> in the directory you just created. This will be the default page that nginx will serve to the visitors of our website.<br />
+            Into it paste the following:
+            <div class="wideCode pre"><pre><?php echo htmlentities('<!DOCTYPE html>
+<html>
+    <head>
+        <title>My cool page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width: device-width, initial-scale: 1.0">
+    </head>
+    <body>
+        Page content goes here :)
+    </body>
+</html>');?></pre></div>
+            Save the file and continue on to creating a basic HTTP config.<br />
+            <br />
+            <h3 id="#nginxSetupBasicHTTPConfiguration">> Creating a basic HTTP configuration</h3>
+            To test if our nginx works we'll need to create a new nginx config, which is set up to work over HTTP.<br />
+            On Linux nginx configs are saved in the <code>/etc/nginx/sites-available/</code> directory, while the actual enabled ones are linked to the <code>/etc/nginx/sites-enabled/</code> directory using symbolic links.<br />
+            First we'll clear out both directories of any files (usually there's already a <code>default</code> config that's already enabled, we won't be needing it):<br />
+            <div class="wideCode">
+                cd /etc/nginx/sites-enabled/<br />
+                sudo rm -f *<br />
+                cd /etc/nginx/sites-available/<br />
+                sudo rm -f *<br />
+            </div>
+            Then we'll create a new file without any extensions (name it whatever you want, you don't need any extensions):<br />
+            <div class="wideCode">
+                sudo nano mysite
+            </div>
+            Now that we have opened <code>nano</code> we can start writing the config. First we'll put in a <code>server</code> block:<br />
+            <div class="wideCode"><pre>
+server {
+    
+}</pre></div>
+            We'll follow it up with two <code>listen</code> directives, the first for IPv4 and the second for IPv4 addresses:<br />
+            <div class="wideCode"><pre>
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+}</pre></div>
+            We'll follow it with a <code>root</code> directive, which will tell nginx where to go looking for the website files, and an <code>index</code> directive, which will tell the server how the default HTML and/or PHP files are named (it will open these by default when somebody visits our website):<br />
+            <div class="wideCode"><pre>
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /data/www; # Put the directory you used if you didn't create a /data/www/ directory
+
+    index index.html index.php; # You can remove the index.html option if you only plan on using index.php files (and vice versa)
+}</pre></div>
+            Before we finish up this config we'll also add two <code>location</code> blocks. These will handle how nginx handles different URLs as visitors navigate to them:<br />
+            <div class="wideCode"><pre>
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /data/www; # Put the directory you used if you didn't create a /data/www/ directory
+
+    index index.html index.php; # You can remove the index.html option if you only plan on using index.php files (and vice versa)
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ { # This block handles PHP files, you SHOULD be able to remove it if you're not using PHP
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.3-fpm.sock; # Make sure to replace the 8.3 in the package name with the appropriate version
+    }
+}</pre></div>
+            And finally we'll add the <code>server_name</code> directive. The name of the server is not really all that important, if you want to can always look up why you'd want to put a specific name here.<br />
+            <div class="wideCode"><pre>
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /data/www; # Put the directory you used if you didn't create a /data/www/ directory
+
+    index index.html index.php; # You can remove the index.html option if you only plan on using index.php files (and vice versa)
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ { # This block handles PHP files, you SHOULD be able to remove it if you're not using PHP
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.3-fpm.sock; # Make sure to replace the 8.3 in the package name with the appropriate version
+    }
+
+    server_name _; # Put whatever you want here
+}</pre></div>
+            With that our first basic nginx config is finished. Save it by pressing <code>CTRL + S</code> and exit <code>nano</code> by pressing <code>CTRL + X</code>.<br />
+            Now we'll link the config file to the <code>/etc/nginx/sites-enabled/</code> directory using a symbolic link. Make sure to replace the name of the config in the command below with whatever you named your config:<br />
+            <div class="wideCode">
+                sudo ln -s /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/mysite
+            </div>
+            <b>It is important that you specify the full path to the nginx config, as otherwise the link could be created incorrectly and not work as it should.</b><br />
+            <br />
+            With the config created and linked to the <code>/etc/nginx/sites-enabled/</code> directory we can move on to getting nginx to actually display the page we created in the <code>/data/www/</code> directory.<br />
+            To do this we'll run the following command to reload nginx:<br />
+            <div class="wideCode">
+                sudo nginx -s reload
+            </div>
+            If you don't get any errors the reload should've worked. Note that you could also either restart the server or restart the nginx service using one of these two commands:<br />
+            <div class="wideCode">
+                sudo reboot<br />
+                sudo systemctl restart nginx.service
+            </div>
+            You can also make sure that nginx is still active by running the following command:<br />
+            <div class="wideCode">
+                systemctl status nginx.service
+            </div>
+            If you get a similar output to the one you got when checking if nginx was installed correctly then you're all good to go!<br />
+            Now you can go to your browser and type in the local IP of your server (if you don't know how to find it go look it up, I don't feel like explaining this as well).<br />
+            If you don't get any error codes in your browser and the page displays as it should then you have successfully set up nginx (for now). Once you set up a domain poeple you'll make it so that people outside your local network will be able to access your website without needing to know your public IP address via the HTTP protocol!<br />
+            Don't worry, in the next time we're going to be doing something involving nginx configs we'll make it so that your website will be accessible only through the HTTPS protocol.<br />
             <br />
             <br />
             <br />

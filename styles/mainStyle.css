@@ -122,11 +122,17 @@ td {
     overflow: hidden;
 }
 
-code {
+code, .wideCode {
     border: 2pt solid white;
     border-radius: 2pt;
     padding: 0 2pt;
     background-color: #111;
+}
+
+.wideCode {
+    width: calc(100%-clamp(1rem, 10pt, 2rem)*2);
+    margin: clamp(1rem, 10pt, 2rem);
+    padding: clamp(1rem, 10pt, 2rem);
 }
 
 .level1OL {

@@ -40,7 +40,7 @@ redirectToRemovePortNumberFromURL("/about/");
                 </ul>
                 <br />
                 <h2>> How I made this website</h2>
-                You can read about how I made this website on the <a href="/about/thehow">The how page</a>.<br />
+                You can read about how I made this website on the <a href="/about/thehow">The how</a> page.<br />
                 <br />
                 <br />
                 <br />

@@ -39,7 +39,7 @@ redirectToRemovePortNumberFromURL("/");
             <h2>> Where can you find me?</h2>
             I have quite a few social media accounts/pages, of which as of right now I'm willing to share the following:
             <ul>
-                <li><a href="https://mas.to/@DemagohOfficial" target="_blank">Mastodon</a></li>
+                <li><a rel="me" href="https://mas.to/@DemagohOfficial" target="_blank">Mastodon</a></li>
                 <li><a href="https://github.com/demagoh" target="_blank">Github</a></li>
                 <li><a href="https://www.reddit.com/user/Demagoh/" target="_blank">Reddit</a></li>
             </ul>

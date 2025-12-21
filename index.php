@@ -57,9 +57,9 @@ redirectToRemovePortNumberFromURL("/");
             This website has quite a few pages, of which the only actually visitable ones are:
             <ul>
                 <li><a href="/gyped/">Gyped</a> (WIP)</li>
-                <li><a href="/friends/">Friends</a> (WIP)</li>
+                <li><a href="/friends/">Friends</a></li>
                 <li><a href="/pages/">Pages</a></li>
-                <li><a href="/aboutme/">About me</a> (WIP)</li>
+                <li><a href="/aboutme/">About me</a></li>
                 <li><a href="/about/">About</a></li>
             </ul>
             <span style="white-space: pre;"> </span>

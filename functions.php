@@ -1,5 +1,15 @@
 <?php
 
+function insertFailedConnection() {
+    die('    <body style="visibility: hidden">
+        <div id="page">
+            <span style="padding: 10pt;">Connection failed.</span>
+        </div>
+    </body>
+    <script src="/javascript/showBody.js?' .time() .'"></script>
+</html>');
+}
+
 function insertScript($script) {
     echo '
     <script src="' .$script ."?" .time() .'"></script>';

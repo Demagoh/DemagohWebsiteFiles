@@ -48,7 +48,7 @@ function htmlRedirectHead($destinationName, $destinationPage) {
         ' .metaRedirectToPage($destinationPage) .'
         <style>
             body {
-                background-color: #000;
+                background-color: #222;
             }
         </style>
     </head>
